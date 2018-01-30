@@ -4,41 +4,21 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer  = require('gulp-autoprefixer'),
     browserSync  = require('browser-sync'), // Asynchronous browser loading on .scss file changes
-    reload       = browserSync.reload,
     concat = require('gulp-concat'),
-    concatCss = require('gulp-concat-css'),
-    plumber = require('gulp-plumber'),
     rename = require("gulp-rename"),
     cssmin = require('gulp-cssmin'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
-    notify = require('gulp-notify'),
-    minify = require('gulp-minify'),
     cleanCss = require('gulp-clean-css'),
     util = require('gulp-util'),
     runSequence = require('run-sequence'),
     purify = require('gulp-purifycss'),
     sprity = require('sprity'),
     gulpif = require('gulp-if'),
-    duration = require('gulp-duration'),
     watch = require('gulp-watch'),
-    fs = require('fs'),
-    replace = require('gulp-replace'),
     critical = require('critical').stream,
-    cache = require('gulp-cache'),
-    psi = require('psi'),
-    site = 'http://1b228afc.ngrok.io/special-pages/black-friday',
-    key = '',
-    changed = require('gulp-changed'),
     imagemin = require('gulp-tinypng'),
-    tiny = require('gulp-tinypng-nokey'),
-    newer = require('gulp-newer'),
-    ngrok = require('ngrok'),
-    checkCSS = require( 'gulp-check-unused-css' ),
-    replaceInHtml = require('gulp-replace-task'),
-    hash = require('gulp-hash-filename'),
-    sufix = 'ver=' + new Date().getTime(),
-    clean = require('gulp-clean');
+    hash = require('gulp-hash-filename');
 
 //----------------------------------------------------------
 // Config
@@ -53,8 +33,7 @@ var config = {
         '/partials/*.php'
     ],
     scssin: 'sources/scss/**/*.scss',
-    scssout: 'sources/css/',
-    distcss: 'css/',
+    scssout: 'css/',
     distimg: 'img/',
     inlineout: 'css/inlines/',
     jsin:[
@@ -77,23 +56,6 @@ var config = {
 };
 
 
-//----------------------------------------------------------
-// REMOVE OLD FILE
-//----------------------------------------------------------
-
-
-gulp.task('removeOldFile', function () {
-    return gulp.src(
-        [
-            config.distcss,
-            !config.distcss +'/inlines',
-            config.jsout,
-            config.spriteout
-        ],
-        { read: false }
-    ).pipe(clean());
-});
-
 
 //----------------------------------------------------------
 // GULP WATCH
@@ -110,7 +72,7 @@ gulp.task('watch',
     ];
 
     browserSync.init(files, {
-        proxy: "http://picodi.dev/company/",
+        proxy: "http://localhost/rimart/",
         notify: true
     });
 
@@ -118,11 +80,10 @@ gulp.task('watch',
 
         'buildSass',
         'purifyCustomCSS',
-        'concat',
 
     ]).on('change', browserSync.reload);
 
-    gulp.watch('sources/js/*.js', ['buildJS','javascript-version',]);
+    gulp.watch('sources/js/*.js', ['buildJS']);
     gulp.watch('./*.php').on('change', browserSync.reload);
 });
 
@@ -137,6 +98,7 @@ gulp.task('buildSass', function () {
         .pipe(autoprefixer('last 2 version', '> 1%', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write())
+        .pipe(cssmin())
         .pipe(gulp.dest(config.scssout))
 
 });
@@ -167,20 +129,6 @@ gulp.task('purifyCustomCSS', function () {
         .pipe(gulp.dest(config.scssout))
 });
 
-//----------------------------------------------------------
-// GULP CONCAT -- TASK FOR STYLESHEET
-//----------------------------------------------------------
-
-gulp.task('concat', function () {
-    return gulp.src(config.scssout + '*.css')
-        .pipe(concatCss("style.css"))
-        .pipe(cssmin())
-        .pipe(hash({
-            "format": "{name}." + sufix + ".min.css"
-        }))
-        .pipe(gulp.dest(config.distcss))
-
-});
 
 
 //----------------------------------------------------------
@@ -249,100 +197,16 @@ gulp.task('compressSprite', function () {
 
 
 //----------------------------------------------------------
-// GULP TINY IMAGES
-//----------------------------------------------------------
-
-gulp.task('tinypng', function () {
-    gulp.src(config.distimg + '*.png')
-        .pipe(imagemin('03o58K4FUtnBoZX6oItpqAW_LYvpRwoi'))
-        .pipe(gulp.dest(config.distimg));
-});
-
-gulp.task('tinypngAll', function () {
-    gulp.src(config.distimg + '/uploads/2018/01/*.*')
-        .pipe(imagemin('03o58K4FUtnBoZX6oItpqAW_LYvpRwoi'))
-        .pipe(gulp.dest(config.distimg + '/uploads/2018/01/'));
-});
-
-//----------------------------------------------------------
-// GULP TINY PSI
-//----------------------------------------------------------
-
-gulp.task('psi', ['psi-seq'], function() {
-    console.log('Woohoo! Check out your page speed scores!')
-    process.exit();
-})
-
-
-gulp.task('ngrok-url', function(cb) {
-    return ngrok.connect(80, function (err, url) {
-        site = url;
-        console.log('serving your tunnel from: ' + site);
-        cb();
-    });
-});
-
-
-gulp.task('psi-seq', function (cb) {
-    return runSequence(
-        'ngrok-url',
-        'psi-desktop',
-        'psi-mobile',
-        cb
-    );
-});
-
-
-gulp.task('psi-desktop', function (cb) {
-    psi(site, {
-        nokey: 'true',
-        strategy: 'desktop'
-    }, cb);
-});
-
-gulp.task('psi-mobile', function (cb) {
-    psi(site, {
-        nokey: 'true',
-        strategy: 'mobile'
-    }, cb);
-});
-
-
-//----------------------------------------------------------
 // BROWSER-SYNC
 //----------------------------------------------------------
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "picodi.dev/company"
+        proxy: "http://localhost:3000/rimart/"
     });
 });
 
-//----------------------------------------------------------
-// CHANGE ASSETS VERSION
-//----------------------------------------------------------
 
-gulp.task('style-version', function () {
-    return gulp.src(config.assets_echo)
-        .pipe(replaceInHtml({
-            patterns: [{
-                match: /(?=ver=)(.*?)(?=\.min.css)/g,
-                replacement: sufix
-            }]
-        }))
-        .pipe(gulp.dest(config.dist));
-});
-
-gulp.task('javascript-version', function () {
-    return gulp.src(config.assets_echo)
-        .pipe(replaceInHtml({
-            patterns: [{
-                match: /(?=ver=)(.*?)(?=\.min.js)/g,
-                replacement: sufix
-            }]
-        }))
-        .pipe(gulp.dest(config.dist));
-});
 
 //----------------------------------------------------------
 // GULP BUILD-ALL
@@ -350,17 +214,12 @@ gulp.task('javascript-version', function () {
 
 gulp.task('build', function(callback) {
     runSequence(
-        'removeOldFile',
-        'buildSprite',
-        'compressSprite',
+        // 'buildSprite',
         'buildSass',
         [
             'purifyCustomCSS',
-            'concat',
         ],
         'buildJS',
-        'javascript-version',
-        'style-version',
         'buildCritical',
         callback);
 
