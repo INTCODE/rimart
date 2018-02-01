@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
     <title>Hello, world!</title>
 </head>
 
@@ -11,6 +12,25 @@
 
     <!-- HOMEBANNER -->
     <section class="banner" style="background: url(img/banner.png); background-size: cover; background-position: center top;">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3">Zadzwon</div>
+                <div class="col-md-3">Napisz</div>
+                <div class="col-md-3">Address</div>
+                <div class="col-md-3">Zmien lang</div>
+            </div>
+
+            <div class="welcome-box">
+                <div class="inner">
+                    <img src="img/brand.png" alt="rimart.pl" class="logo">
+                    <h2>najwyższej jakości</h2>
+                    <h1>FELGI ALUMINIOWE & STALOWE</h1>
+                    <button class="btn btn-primary transparent">Poznaj nas</button>
+                </div>
+            </div>
+        </div>
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -20,9 +40,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link active" href="#">Start</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">O Firmie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Galeria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kontakt</a>
                         </li>
                     </ul>
+                    <div class="pull-right">
+                        <a href="#" class="btn btn-primary">Kup na allegro!</a>
+                        <a href="#" class="btn btn-primary">Kup na e-bay!</a>
+                        <a href="#" class="btn btn-primary fb-style">Facebook</a>
+                    </div>
                 </div>
             </div>
         </nav>

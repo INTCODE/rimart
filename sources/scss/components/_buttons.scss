@@ -1,0 +1,19 @@
+.btn-primary{
+  background: $brand-red;
+  border-radius: 0;
+  border: 2px solid $brand-red;
+  font-size: $font-size-base;
+  &:hover{
+    color: $brand-red;
+    background: transparent;
+    border-color: $brand-red;
+  }
+  &.fb-style{
+    background: $fb-blue;
+    border: 2px solid $fb-blue;
+    &:hover{
+      color: $fb-blue;
+      background: transparent;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.navbar{
+  .nav-item{
+    .nav-link{
+      color: $white;
+      text-transform: uppercase;
+      font-size: $font-size-base;
+      padding: 10px 20px;
+      margin-left: 20px;
+      &:first-child{
+        padding-left: 0;
+      }
+      &.active{
+        color: $brand-red;
+      }
+      &:hover{
+        color: $brand-red;
+      }
+    }
+  }
+  .btn-primary{
+    margin-left: 10px;
+  }
+}

@@ -139,7 +139,7 @@ gulp.task('buildCritical', function () {
     return gulp.src( config.htmlin + '*.html' )
         .pipe(critical({
             base: config.htmlin,
-            css: config.distcss + 'style.' + sufix + '.min.css',
+            css: config.distcss + 'style.min.css',
             minify: true,
             width: 1920,
             height: 1280,
@@ -166,37 +166,6 @@ gulp.task('buildJS', function() {
 
 
 //----------------------------------------------------------
-// GULP SPRITE + TINY PNG
-//----------------------------------------------------------
-
-gulp.task('buildSprite', function () {
-    return sprity.src({
-        name: 'sprite.' + sufix,
-        src: config.spritein + '*.{png,jpg}',
-        style: config.spritescssout + '/sprite.scss',
-        cssPath: '../img/sprite',
-        cachebuster: "?<...>",
-        margin: 1,
-    })
-        .pipe(gulpif('*.png',
-            gulp.dest(config.spriteout),
-            gulp.dest( config.spritescssout)
-        ))
-        .pipe(gulpif('*.png',
-            gulp.dest(config.spriteout)
-        ))
-});
-
-// Compress sprite.png file
-// ------------------------------------------------------
-gulp.task('compressSprite', function () {
-    return gulp.src(config.spriteout + '*.png')
-        .pipe(imagemin('03o58K4FUtnBoZX6oItpqAW_LYvpRwoi'))
-        .pipe(gulp.dest(config.spriteout));
-});
-
-
-//----------------------------------------------------------
 // BROWSER-SYNC
 //----------------------------------------------------------
 
@@ -214,15 +183,10 @@ gulp.task('browser-sync', function() {
 
 gulp.task('build', function(callback) {
     runSequence(
-        // 'buildSprite',
         'buildSass',
-        [
-            'purifyCustomCSS',
-        ],
         'buildJS',
         'buildCritical',
         callback);
-
 
 })
 
