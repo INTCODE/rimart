@@ -1,5 +1,5 @@
 {
-  "name": "wp-gulp-automation",
+  "name": "wp-picodi-gulp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^4.0.0",
     "browser-sync": "^2.18.13",
     "critical": "^0.9.0",
     "fs": "0.0.1-security",
@@ -18,7 +17,7 @@
     "gulp-cache": "^0.4.6",
     "gulp-changed": "^3.1.1",
     "gulp-check-unused-css": "^2.1.4",
-    "gulp-clean": "^0.4.0",
+    "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^3.7.0",
     "gulp-cli": "^1.4.0",
     "gulp-concat": "^2.6.1",
