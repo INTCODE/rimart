@@ -3,3 +3,12 @@ body{
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
 }
+
+ul,ol{
+  margin-left: 0;
+  padding: 0;
+  li{
+    list-style: none;
+    display: inline-block;
+  }
+}

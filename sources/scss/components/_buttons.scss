@@ -3,17 +3,30 @@
   border-radius: 0;
   border: 2px solid $brand-red;
   font-size: $font-size-base;
+  padding: 8px 20px;
   &:hover{
-    color: $brand-red;
+    color: $white;
     background: transparent;
     border-color: $brand-red;
   }
   &.fb-style{
     background: $fb-blue;
     border: 2px solid $fb-blue;
+    padding: 8px 20px;
     &:hover{
-      color: $fb-blue;
+      color: $white;
       background: transparent;
     }
+  }
+}
+
+.btn-red-border{
+  background: transparent;
+  border:2px solid $brand-red;
+  color: $white;
+  padding: 10px 25px;
+  &:hover{
+    background: $brand-red;
+    color: $white;
   }
 }

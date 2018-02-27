@@ -4,6 +4,7 @@
   height: 100vh;
   display: table;
   background-position: center top;
+  padding-top: 25px;
   .navbar{
     position: absolute;
     bottom: 0;
@@ -11,6 +12,110 @@
     right: 0;
     background: $dark;
   }
+  .contact-row{
+    .contact-box{
+      padding-left: 50px;
+      position: relative;
+      &.phone{
+        &:before{
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          top:8px;
+          left: 8px;
+          background: url("../img/phone.png")center center no-repeat;
+        }
+      }
+      &.mail{
+        &:before{
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          top:8px;
+          left: 8px;
+          background: url("../img/envelope.png")center center no-repeat;
+        }
+      }
+      &.localization{
+        &:before{
+          content: "";
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          top:8px;
+          left: 8px;
+          background: url("../img/address.png")center center no-repeat;
+        }
+      }
+      span{
+        color: $grey;
+        font-weight: 200;
+      }
+      p{
+        color: $white;
+        font-weight: 400;
+      }
+    }
+
+    .lang-switch{
+      padding-top: 8px;
+      .list-item{
+        padding: 28px 10px 0 0;
+        position: relative;
+        text-align: center;
+        a{
+          color: $grey;
+          text-decoration: none;
+          display: block;
+          text-align: center;
+          &:hover{
+            color: $brand-red;
+          }
+          &.active{
+            color: $brand-red;
+          }
+        }
+        &.pl{
+          &:before{
+            content: "";
+            position: absolute;
+            top:0;
+            left: -3px;
+            width: 25px;
+            height: 25px;
+            border:1px solid pink;
+          }
+          &:after{
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            right: 2px;
+            width: 1px;
+            height: 12px;
+            background: $grey;
+          }
+        }
+        &.en{
+          &:before{
+            content: "";
+            position: absolute;
+            top:0;
+            left: -3px;
+            width: 25px;
+            height: 25px;
+            border:1px solid pink;
+          }
+        }
+      }
+    }
+
+  }
+
 
   .welcome-box{
     height: 90vh;
@@ -20,21 +125,24 @@
     .inner{
       position: absolute;
       right: 0;
-      bottom:150px;
+      bottom:240px;
       width: 100%;
       max-width: 600px;
       height:auto;
       .logo{
-        margin: 25px 0;
+        margin: 35px 0;
       }
       h1,h2{
         color: $white;
         text-transform: uppercase;
-        font-weight: 300;
+        font-weight: 600;
         margn:0;
       }
       h2{
-        font-weight: 200;
+        font-weight: 300;
+      }
+      .btn{
+        margin-top: 30px;
       }
     }
 

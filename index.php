@@ -14,12 +14,35 @@
     <section class="banner" style="background: url(img/banner.png); background-size: cover; background-position: center top;">
 
         <div class="container">
-
-            <div class="row">
-                <div class="col-md-3">Zadzwon</div>
-                <div class="col-md-3">Napisz</div>
-                <div class="col-md-3">Address</div>
-                <div class="col-md-3">Zmien lang</div>
+            <div class="row contact-row">
+                <div class="col-md-3">
+                    <div class="contact-box phone">
+                        <span>Zadzwoń do nas:</span>
+                        <p>+48 509 33 00 32</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-box mail">
+                        <span>Wyślij nam wiadomość:</span>
+                        <p>info@rimart.pl</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-box localization">
+                        <span>Odwiedź nas:</span>
+                        <p>Łącko 476, 33-390 Łącko</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                     <ul class="lang-switch">
+                         <li class="list-item pl">
+                             <a class="active" href="#">PL</a>
+                         </li>
+                         <li class="list-item en">
+                             <a href="#">EN</a>
+                         </li>
+                     </ul>
+                </div>
             </div>
 
             <div class="welcome-box">
@@ -27,7 +50,7 @@
                     <img src="img/brand.png" alt="rimart.pl" class="logo">
                     <h2>najwyższej jakości</h2>
                     <h1>FELGI ALUMINIOWE & STALOWE</h1>
-                    <button class="btn btn-primary transparent">Poznaj nas</button>
+                    <button class="btn btn-primary btn-red-border">Poznaj nas</button>
                 </div>
             </div>
         </div>
