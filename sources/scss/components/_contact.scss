@@ -1,0 +1,56 @@
+.contact{
+  background: url("../img/dark_metal.png") no-repeat;
+  background-size: cover;
+  &-block{
+    span.c_name{
+      font-size: $font-size-base - 2;
+      color: $grey;
+      text-align: right;
+      display: block;
+      padding-right: 25px;
+    }
+  }
+  &-list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding-right: 25px;
+    padding-bottom: 35px;
+      &--item{
+        display: block;
+        text-align: right;
+        color: $white;
+        margin: 8px 0;
+        display: block;
+
+        a{
+          color: $white;
+          &:hover{
+            color: $brand-red;
+          }
+        }
+      }
+  }
+
+
+  .wpcf7{
+    .form-group{
+      margin-bottom: 0;
+    }
+    .form-control{
+      border-radius: 0;
+      background: transparent;
+      border: 1px solid $grey;
+      padding: 10px 15px;
+      &::placeholder{
+        font-size:12px;
+      }
+      &:focus{
+        outline: none;
+        border-color: $brand-red;
+      }
+    }
+  }
+}
+
+

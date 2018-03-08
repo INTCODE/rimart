@@ -5,12 +5,13 @@
   display: table;
   background-position: center top;
   padding-top: 25px;
-  .navbar{
+  .navigation{
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     background: $dark;
+    height: 50px;
   }
   .contact-row{
     .contact-box{
@@ -65,7 +66,7 @@
     .lang-switch{
       padding-top: 8px;
       .list-item{
-        padding: 28px 10px 0 0;
+        padding: 20px 15px 0 0;
         position: relative;
         text-align: center;
         a{
@@ -73,11 +74,13 @@
           text-decoration: none;
           display: block;
           text-align: center;
+          opacity: 0.5;
           &:hover{
             color: $brand-red;
           }
           &.active{
             color: $brand-red;
+            opacity: 1;
           }
         }
         &.pl{
@@ -88,7 +91,7 @@
             left: -3px;
             width: 25px;
             height: 25px;
-            border:1px solid pink;
+            background: url("../img/pl.png")no-repeat center center;
           }
           &:after{
             content: "";
@@ -103,12 +106,12 @@
         &.en{
           &:before{
             content: "";
+            background: url("../img/en.png")no-repeat center center;
             position: absolute;
             top:0;
             left: -3px;
             width: 25px;
             height: 25px;
-            border:1px solid pink;
           }
         }
       }

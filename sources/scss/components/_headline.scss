@@ -1,0 +1,30 @@
+.headline{
+  text-align:center;
+  margin-bottom: 50px;
+  &.left{
+    text-align:left;
+  }
+  &_h3{
+    padding:5px;
+    display:inline-block;
+    color:$healdine-primary-color;
+    font-size: $healdine-font-size;
+    position:relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-size: 18px;
+    &:first-letter{
+      color:$healdine-second-color;
+    }
+    &:after{
+      content:"";
+      position:absolute;
+      left:2px;
+      bottom:0;
+      height:1px;
+      width:20px;
+      background:$healdine-second-color;
+    }
+  }
+}

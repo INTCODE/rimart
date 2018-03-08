@@ -1,0 +1,157 @@
+.box{
+   max-width:370px;
+   padding:10px;
+   position:relative;
+   &:after{
+
+   }
+   .border-half{
+     position:absolute;
+     border-top:solid red;
+     border-left:solid red;
+     border-bottom:solid red;
+     width:55%;
+     height:100%;
+     &:before{
+       content: "";
+       width: 3px;
+       height: 30px;
+       position: absolute;
+       right: 0;
+       top: 0;
+       background: red;
+     }
+     &:after{
+       content: "";
+       width: 3px;
+       height: 30px;
+       position: absolute;
+       right: 0;
+       bottom: 0;
+       background: red;
+     }
+   }
+   h4{
+     font-size:18px;
+     color: $white;
+     font-weight: 200;
+     padding: 50px 0 10px 25px;
+     position: relative;
+     left: 20px;
+     line-height: 1.2;
+     text-transform: uppercase;
+     span{
+       font-size:24px;
+       font-weight: 600;
+       letter-spacing: 2px;
+     }
+   }
+   p{
+     color: $grey;
+     padding: 0px 0 80px 25px;
+     position: relative;
+     left: 20px;
+     font-size: 12px;
+     line-height: 1.7;
+   }
+ }
+
+
+.box-right{
+  max-width:370px;
+  padding:10px;
+  position:relative;
+  &:after{
+
+  }
+  .border-half{
+    position:absolute;
+    border-top:solid red;
+    border-right:solid red;
+    border-bottom:solid red;
+    width:55%;
+    height:100%;
+    right: 0;
+    &:before{
+      content: "";
+      width: 3px;
+      height: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: red;
+    }
+    &:after{
+      content: "";
+      width: 3px;
+      height: 30px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: red;
+    }
+  }
+  h4{
+    font-size:18px;
+    text-align: right;
+    color: $white;
+    font-weight: 200;
+    padding: 50px 0 10px 25px;
+    position: relative;
+    right: 20px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    span{
+      font-size:24px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+  }
+  p{
+    color: $grey;
+    padding: 0px 0 80px 25px;
+    position: relative;
+    right: 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: right;
+  }
+}
+
+.box-fully{
+  max-width:370px;
+  padding:10px;
+  display: block;
+  position: relative;
+  height: 50px;
+  .border-half{
+    position:relative;
+    border:solid red;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  h4{
+    font-size:18px;
+    text-align: center;
+    color: $white;
+    font-weight: 200;
+    padding: 35px 0 21px 5px;
+    position: relative;
+    line-height: 1.2;
+    text-transform: uppercase;
+    span{
+      font-size:24px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+  }
+  p{
+    color: $grey;
+    padding: 0px 0 80px 25px;
+    position: relative;
+    right: 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+  }
+}

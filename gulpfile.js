@@ -37,15 +37,8 @@ var config = {
     distimg: 'img/',
     inlineout: 'css/inlines/',
     jsin:[
-        'sources/plugins/jquery-1.12.4/jquery-1.12.4.js',
-        'sources/plugins/bootstrap-sass-3.3.7/assets/javascripts/bootstrap/dropdown.js',
-        'sources/plugins/tableSorter/jquery.tablesorter.js',
-        'sources/plugins/jQuery.lozad/lozad.min.js',
-        'sources/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js',
-        'sources/plugins/bootstrap-sass-3.3.7/assets/javascripts/bootstrap/modal.js',
-        'sources/plugins/ekkoLightbox/ekko-lightbox.min.js',
-        'sources/plugins/ekkoLightbox/anchor.js',
-
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
         'sources/js/*.js'
     ],
     jsout: 'js/',
@@ -159,7 +152,7 @@ gulp.task('buildJS', function() {
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(hash({
-            "format": "{name}." + sufix + ".min.js"
+            "format": "{name}.min.js"
         }))
         .pipe(gulp.dest(config.jsout))
 });

@@ -1,0 +1,35 @@
+.gallery{
+  background: $dark_bg;
+  &-items{
+    height: 253px;
+    margin: 15px auto;
+    max-width: 692px;
+    &.wheels{
+      background: url("../img/wheels.png");
+      background-size: cover;
+      .box-right{
+        margin: 0px auto;
+        top: 44px;
+        left: -87px;
+      }
+    }
+    &.cars{
+      background: url("../img/cars.png");
+      background-size: cover;
+      .box{
+        margin: 0px auto;
+        top: 44px;
+        right: -69px;
+      }
+    }
+    &.t-shirts{
+      background: url("../img/tshirt.png");
+      background-size: cover;
+      .box-fully{
+        top: 45px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
